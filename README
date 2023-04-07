@@ -1,0 +1,44 @@
+*************** SLV-1.0 *****************
+
+*** GENERAL ***
+
+slv is a mathematical solver, which supports the following:
+- both postfix and infix mode of input, with a great variety and freedom in placing spaces
+  and parentheses (according to priorities of operators);
+- higher order functions (so called "eval mode") for creation your own functions using
+  parsing and placing the pointers to functions into eval stack, which is used without
+  parsing any corresponding call afterwards. Such functionality is essential for
+  integration and differentiation, e.g.:
+  $ int(0, pi(), 0.0001, [sin(x) + cos(x)]) will calculate the finite integral for given
+  function;
+- command mode with generic commands;
+- 26 variables (a..z) for storing intermediate values;
+- history of commands and searching in it, also command cache is available, which stores
+  precalculated results from stacks;
+- support for binary, hexademical and decimal numeral systems, exponential notation support
+  for floating point numbers;
+- support for unary and binary operators treated separate from functions: +, -, /, *, %, ^,
+  ~, |, &, $, '.
+
+*** BUILD ***
+
+The following is needed:
+- any system having libc (UNIX isn't necessary);
+- c compiler.
+$ make
+will generate a binary, that's it.
+
+*** WAYS TO IMPROVE ***
+
+Current observations are given below, although all these things aren't so important:
+- add very big numbers support;
+- add ncurses interface, drawing plots;
+- add separate stack support for increasing performance;
+- add 26 A..Z variable configuration;
+- add more commands;
+- improve addpairs() in infix.c for using one data structure storing all info about updates
+  for one call;
+- add algebraic and differential equation solving.
+
+~~~~~~~~~~~~~~~
+Stanislav Hubin
